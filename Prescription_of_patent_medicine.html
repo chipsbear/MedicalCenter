@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<script src="js/jquery.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<title>Prescription_of_patent_medicine</title>
+	</head>
+	<body>
+		
+		<div class="container">
+			<ul class="nav nav-tabs">
+				<li><a href="DoctorAddismistion.html">病历首页</a></li>
+				<li><a href="Check_Application.html">检查申请</a></li>
+				<li><a href="#jiancha" data-toggle="tab">检验申请<span style="color: red;">*</span></a></li>
+				<li><a href="#menzhen" data-toggle="tab">门诊确诊<span style="color: red;">*</span></a></li>
+				<li><a href="#chuzhi" data-toggle="tab">处置申请<span style="color: red;">*</span></a></li>
+				<li  class="active"><a href="#chengyao" data-toggle="tab">成药处方</a></li>
+				<li><a href="#caoyao" data-toggle="tab">草药处方<span style="color: red;">*</span></a></li>
+				<li><a href="#feiyong" data-toggle="tab">费用查询<span style="color: red;">*</span></a></li>
+			</ul>
+		
+			<div id="chengyao" class="tab-pane active">
+				<!--抬头图标-->
+				<div class="row bg-success" style="margin-left:3px; margin-right: 3px width: 50px">
+					<div style="float:left;background:; margin-left: 100px; ">
+						<i class="glyphicon glyphicon-plus" style="color: #00FFFF;"></i>
+						<a>增方</a>
+					</div>
+					<div style="float:left;background: ; margin-left: 50px;">
+						<i class="glyphicon glyphicon-minus" style="color: #00FFFF;"></i>
+						<a >删方</a>
+					</div>
+					<div style="float:left;background: ; margin-left: 50px;">
+						<i class="glyphicon glyphicon-ok" style="color: #00FFFF;"></i>
+						<a >开立</a>
+					</div>
+					<div style="float:left;background: ; margin-left: 50px;">
+						<i class="glyphicon glyphicon-trash" style="color: #00FFFF;"></i>
+						<a >作废</a>
+					</div>
+					<div style="float:left;background: ; margin-left: 50px;">
+						<i class="glyphicon glyphicon-refresh" style="color: #00FFFF;"></i>
+						<a >刷新</a>
+					</div>
+					<div style="float:left;background: ; margin-left: 200px;">
+						<i class="glyphicon glyphicon-plus" style="color: #00FFFF;"></i>
+						<a >增药</a>
+					</div>
+					<div style="float:left;background: ; margin-left: 50px;">
+						<i class="glyphicon glyphicon-minus" style="color: #00FFFF;"></i>
+						<a >删药</a>
+					</div>
+				</div>
+				
+				<div class="col-md-4">
+					<div class="label label-default">门诊处方：</div>
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<td></td>
+								<td>名称</td>
+								<td>状态</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><input type="radio"></td>
+								<td>模板：念珠性皮炎</td>
+								<td>已开立</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			
+			<!--处方详细-->
+			<div class="col-md-8">
+				<div class="form-inline">
+					<div class="label label-info">本处方合计</div>
+					<div class="label label-danger"> 21.90 元 </div>
+				</div>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<td><input type="checkbox"></td>
+							<td>药品名称</td>
+							<td>规格</td>
+							<td>单价</td>
+							<td>用法</td>
+							<td>用量</td>
+							<td>频次</td>
+							<td>数量</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><input type="checkbox"></td>
+							<td>0.9%氯化钠注射液(塑瓶)</td>
+							<td>0.9g:100ml*1瓶</td>
+							<td>6.34</td>
+							<td>静脉注射</td>
+							<td>100ml</td>
+							<td>一日一次</td>
+							<td>1</td>
+						</tr>
+					</tbody>
+					<tbody>
+						<tr>
+							<td><input type="checkbox"></td>
+							<td>复方甘露醇注射液(申宁)</td>
+							<td>250ml*1袋</td>
+							<td>15.56</td>
+							<td>静脉注射</td>
+							<td>200ml</td>
+							<td>一日一次</td>
+							<td>1</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			
+			<!--tab-->
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="#chufang" data-toggle="tab">处方模板</a></li>
+				<li><a href="#changyong" data-toggle="tab">常用药品<span style="color: red;">*</span></a></li>
+				<li><a href="#jianyi" data-toggle="tab">建议方案<span style="color: red;">*</span></a></li>
+				<li><a href="#lishi" data-toggle="tab">历史处方<span style="color: red;">*</span></a></li>
+			</ul>
+			<!--标签页的内容-->
+			<div class="tab-content">
+				<div id="chufang" class="tab-pane active">
+					<div class="col-md-4">
+						<div class="row">
+							<form class="navbar-form navbar-left visible-xs-block visible-md-block visible-lg-block">
+								<div class="form-group">
+									<div class="label label-info form-group">名称：</div>
+									<input type="search" class="form-control" placeholder="请输入搜索关键字"/>
+									<input type="submit" class="btn btn-info" value="搜索"/>
+								</div>						
+							</form>
+						</div>
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<td>模板名称</td>
+									<td>范围</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>春季常发病感冒</td>
+									<td>全税</td>
+								</tr>
+								<tr>
+									<td>春季常发感冒</td>
+									<td>个人</td>
+								</tr>
+								<tr>
+									<td>流行病腮腺炎NOS</td>
+									<td>个人</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="row" style="float:right">
+							<nav>
+					        	<ul class="pagination">
+					        		<li><a href="#">上页</a></li>
+					                <li><a href="#">1</a></li>
+					                <li><a href="#">2</a></li>
+					                <li><a href="#">3</a></li>
+					                <li><a href="#">...</a></li>
+					                <li><a href="#">下页</a></li>
+					        	</ul>
+					        </nav>
+					    </div>
+					</div>
+					
+					<div class="col-md-8 panel panel-default">
+						<div class="panel-heading">
+							模板明细<a href="#" class="panel-title pull-right">使用该模板</a>
+						</div>
+						<div class="panel-body">
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<td>商品名称</td>
+										<td>规格</td>
+										<td>单位</td>
+										<td>用法</td>
+										<td>用量</td>
+										<td>频次</td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>泽泻颗粒</td>
+										<td>1g/10g/一袋</td>
+										<td>袋</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+									</tr>
+									<tr>
+										<td>山药颗粒</td>
+										<td>0.5g/10g/一袋</td>
+										<td>袋</td>
+										<td>2</td>
+										<td>1</td>
+										<td>1</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div id="changyong" class="tab-pane">
+					<p>神经外科</p>
+					<div class="alert alert-info">
+						暂无数据
+					</div>
+					<p>神经内科</p>
+					<div class="alert alert-info">
+						暂无数据
+					</div>
+					<p>儿科内科</p>
+					<div class="alert alert-info">
+						暂无数据
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		
+	</body>
+</html>
