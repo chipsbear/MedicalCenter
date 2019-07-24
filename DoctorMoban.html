@@ -9,8 +9,41 @@
 		<title>DoctorAddministrtion</title>
 	</head>
 	<body>
-		<div class="container">
-
+	<div class="container">
+		<ul class="nav nav-tabs">
+			<li><a href="DoctorAddismistion.html">病历首页</a></li>
+			<li><a href="Check_Application.html">检查申请</a></li>
+			<li><a href="#jianyan" data-toggle="tab">检验申请<span style="color: red;">*</span></a></li>
+			<li><a href="#menzhen" data-toggle="tab">门诊确诊<span style="color: red;">*</span></a></li>
+			<li><a href="#chuzhi" data-toggle="tab">处置申请<span style="color: red;">*</span></a></li>
+			<li><a href="Prescription_of_patent_medicine.html">成药处方</a></li>
+			<li class="active"><a href="#yiji">医技模板<span style="color: red;">*</span></a></li>
+			<li><a href="#feiyong" data-toggle="tab">费用查询<span style="color: red;">*</span></a></li>
+		</ul>
+		
+		<div class="tab-content" style="margin-top:10px">
+			<div id="yiji" class="tab-pane active">
+				<div class="col-lg-6 alert alert-info form-inline">
+					<input type="button" class="btn btn-info btn-xs form-control" value="医技模板" style="float:left;"></input>
+					<div style="float:left; background: ; margin-left: 400px;">
+						<i class="glyphicon glyphicon-plus-sign" style="color: #00FFFF;"></i>
+						<a>新建模板</a>
+					</div>
+					<div class="row">
+						<form class="navbar-form navbar-left visible-xs-block visible-md-block visible-lg-block">
+							<div class="form-group">
+								<div class="label label-info form-control">名称：</div>
+								<input type="search" class="form-control" placeholder="请输入模板名称"/>
+								<div class="label label-info form-control">范围：</div>
+								<input type="select" class="form-control">
+								<input type="submit" class="btn btn-info" value="搜索"/>
+							</div>						
+						</form>
+					</div>
+					
+				</div>
+			</div>
 		</div>
+	</div>
 	</body>
 </html>
