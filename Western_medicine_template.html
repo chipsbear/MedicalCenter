@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<script src="js/jquery.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<title>WesterMedicineTemplate</title>
+	</head>
+	<body>
+		<div class="container">
+			<ul class="nav nav-tabs">
+				<li><a href="DoctorAddismistion.html">病历首页</a></li>
+				<li><a href="Check_Application.html">检查申请</a></li>
+				<li><a href="#jianyan" data-toggle="tab">检验申请<span style="color: red;">*</span></a></li>
+				<li><a href="#menzhen" data-toggle="tab">门诊确诊<span style="color: red;">*</span></a></li>
+				<li><a href="#chuzhi" data-toggle="tab">处置申请<span style="color: red;">*</span></a></li>
+				<li><a href="Prescription_of_patent_medicine.html">成药处方</a></li>
+				<li><a href="DoctorMoban.html#leftPanel">医技模板<span style="color: red;">*</span></a></li>
+				<li class="active"><a href="#xiyi">西医处方<span style="color: red;">*</span></a></li>
+			</ul>
+			
+			<div class="tab-content" style="margin-top:10px">
+				<div id="xiyi" class="tab-pane active">
+					<!--左边面板-->
+					<div id="leftPanel" class="col-md-6">
+						<div class="row bg-success" style="vertical-align: middle; margin-right: 20px; margin-left:3px;">
+							<div class="label label-info" style="float:left; height:50%; ">西医处方模板</div>
+							<div style="float:right; ">
+								<i class="glyphicon glyphicon-plus-sign" style="color: #00FFFF;"></i>
+								<a>新建模板</a>
+							</div>
+						</div>
+						<div class="row">
+							<form class="navbar-form navbar-left visible-xs-block visible-md-block visible-lg-block">
+								<div class="form-group">
+									<div class="label label-info">名称：</div>
+									<input type="search" class="form-control" placeholder="请输入模板名称"/>
+									<div class="label label-info">范围：</div>
+									<select class="form-control">
+										<option>所有</option>
+										<option>全院</option>
+										<option>科室</option>
+									</select>
+									<input type="button" class="btn btn-info" value="搜索"/>
+								</div>						
+							</form>
+						</div>
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<td>模板名称</td>
+									<td>创建时间</td>
+									<td>范围</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>春季常发性感冒</td>
+									<td>2019-03-22 16:24</td>
+									<td>全院</td>
+								</tr>
+							</tbody>
+							<tbody>
+								<tr>
+									<td>流行性腮腺炎</td>
+									<td>2019-03-22 16:47</td>
+									<td>个人</td>
+								</tr>
+							</tbody>
+							<tbody>
+								<tr>
+									<td>肩周炎</td>
+									<td>2019-03-22 16:48</td>
+									<td>科室</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="row" style="float:right">
+							<nav>
+					        	<ul class="pagination">
+					        		<li><a href="#">上页</a></li>
+					                <li><a href="#">1</a></li>
+					                <li><a href="#">2</a></li>
+					                <li><a href="#">3</a></li>
+					                <li><a href="#">...</a></li>
+					                <li><a href="#">下页</a></li>
+					        	</ul>
+					        </nav>
+					    </div>
+					</div>
+					
+					<!--右边面板: 当时的问题没有解决掉,红色浸染全部,两个class,后一个自动抵消掉-->
+					<div class="rightPanel col-md-6">
+						<div class="row bg-warning" style="margin-left:3px; margin-right: 3px;">
+							<div style="float:left;background:; margin-left: 10px; margin-right: 20px; ">
+								<i class="glyphicon glyphicon-plus-sign" style="color: #00FFFF;"></i>
+								<a>增加药品</a>
+							</div>
+							<div style="float:left;background: ; margin-left: 30px; margin-right: 20px; ">
+								<i class="glyphicon glyphicon-remove" style="color: #00FFFF;"></i>
+								<a >删除药品</a>
+							</div>
+							<div style="float:left;background: ; margin-left: 30px; margin-right: 20px; ">
+								<i class="glyphicon glyphicon-ok" style="color: #00FFFF;"></i>
+								<a >修改模板</a>
+							</div>
+							<div style="float:left;background: ; margin-left: 30px; margin-right: 20px; ">
+								<i class="glyphicon glyphicon-trash" style="color: #00FFFF;"></i>
+								<a >删除模板</a>
+							</div>
+						</div>
+						
+						<!---模板内容-->
+						<div class="panel panel-info" style="margin-top:10px;">
+							<div class="panel-heading" style="text-align:center; vertical-align: middle">
+								模板明细
+							</div>
+							
+							<div class="panel-body">
+								<div class="row">
+									<form class="navbar-form navbar-left visible-xs-block visible-md-block visible-lg-block">
+										<div class="form-group">
+											<input type="button" class="btn btn-info" disabled="disabled" style="background:grey; border-color:grey;" value="模板名称："></input>
+											<input type="text" placeholder="病毒性肠胃炎" class="form-control" disabled="disabled"></input>
+										</div>
+										<div class="label label-info" style="margin-left:50px;">模板范围：</div>
+										<select class="form-control">
+											<option>所有</option>
+											<option>全院</option>
+											<option>科室</option>
+										</select>
+									</form>
+								</div>
+								
+								<table class="table table-striped">
+								<thead>
+									<tr>
+										<td><input type="checkbox"></input></td>
+										<td>药品名称</td>
+										<td>规格</td>
+										<td>单位</td>
+										<td>用法</td>
+										<td>用量</td>
+										<td>频次</td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><input type="checkbox"></input></td>
+										<td>肠内营养粉剂(安素)</td>
+										<td>1000mg/g</td>
+										<td>克</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+									</tr>
+									<tr>
+										<td><input type="checkbox"></input></td>
+										<td>番木鳖酊</td>
+										<td>1000mg/g</td>
+										<td>克</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+									</tr>
+								</tbody>
+								</table>
+								
+								<div class="row" style="float:right">
+									<nav>
+							        	<ul class="pagination">
+							        		<li><a href="#">上页</a></li>
+							                <li><a href="#">1</a></li>
+							                <li><a href="#">2</a></li>
+							                <li><a href="#">3</a></li>
+							                <li><a href="#">...</a></li>
+							                <li><a href="#">下页</a></li>
+							        	</ul>
+							        </nav>
+							    </div>
+								
+							</div>
+						</div>
+					</div>
+					
+					<!---->
+			</div>
+		</div>
+	</div>
+	</body>
+</html>
