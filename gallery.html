@@ -133,11 +133,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="collapse navbar-collapse nav-wil links" id="bs-example-navbar-collapse-1">
 					<nav class="menu menu--horatio">
 						<ul class="nav navbar-nav menu__list">
-							<li class="menu__item "><a href="index.html" class="menu__link">Home</a></li>
-							<li class="menu__item"><a href="about.html" class="menu__link">About</a></li> 
-							<li class="menu__item"><a href="codes.html" class="menu__link">Short Codes</a></li> 
-							<li class="menu__item menu__item--current"><a href="gallery.html" class="menu__link">Gallery</a></li> 
-							<li class="menu__item "><a href="contact.html" class="menu__link">Contact</a></li>
+							<li class="menu__item "><a href="index.html" class="menu__link">病例首页</a></li>
+							<li class="menu__item "><a href="about.html" class="menu__link">检查申请</a></li> 
+							<li class="menu__item "><a href="codes.html" class="menu__link">成药处方</a></li> 
+							<li class="menu__item menu__item--current"><a href="gallery.html" class="menu__link">草药处方</a></li> 
+							<li class="menu__item "><a href="contact.html" class="menu__link">西医处方</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -146,148 +146,178 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 
-<!-- banner -->
-<div class="banner page_head">
-
-</div>
+<!-- banner 第二块-->
 <!-- //banner -->
-<!-- gallery -->
-<div class="gallery">
-	<div class="container">
-		<h3 class="tittle">Gallery</h3>
-				<div class="gallery-grids">
-					<div class="col-md-6 baner-top wow fadeInRight animated" data-wow-delay=".5s">
-						<a href="images/g1.jpg" class="b-link-stripe b-animate-go  swipebox">
-							<div class="gal-spin-effect vertical ">
-								<img src="images/g1.jpg" alt=" " />
-								<div class="gal-text-box">
-									<div class="info-gal-con">
-										<h4>Infirmary</h4>
-										<span class="separator"></span>
-										<p>Sit accusamus, vel blanditiis iure minima ipsa molestias minus laborum velit, nulla nisi hic quasi enim.</p>
-										<span class="separator"></span>
-										
-									</div>
-								</div>
-							</div>
-						</a>
+<!-- gallery 第三块-->
+<div class="container">
+	<ul class="nav nav-tabs">
+		<li><a href="DoctorAddismistion.html">病历首页</a></li>
+		<li><a href="Check_Application.html">检查申请</a></li>
+		<li><a href="#jianyan" data-toggle="tab">检验申请<span style="color: red;">*</span></a></li>
+		<li><a href="#menzhen" data-toggle="tab">门诊确诊<span style="color: red;">*</span></a></li>
+		<li><a href="#chuzhi" data-toggle="tab">处置申请<span style="color: red;">*</span></a></li>
+		<li><a href="Prescription_of_patent_medicine.html">成药处方</a></li>
+		<li class="active"><a href="#yiji">医技模板<span style="color: red;">*</span></a></li>
+		<li><a href="Western_medicine_template.html">西医模板<span style="color: red;">*</span></a></li>
+	</ul>
+	
+	<div class="tab-content" style="margin-top:10px">
+		<div id="yiji" class="tab-pane active">
+			<div id="leftPanel" class="col-md-6">
+				<div class="row bg-success" style="vertical-align: middle; margin-right: 20px; margin-left:3px;">
+					<div class="label label-info" style="float:left; height:50%; ">医技模板</div>
+					<div style="float:right; ">
+						<i class="glyphicon glyphicon-plus-sign" style="color: #00FFFF;"></i>
+						<a>新建模板</a>
 					</div>
-					<div class="col-md-6 baner-top wow fadeInLeft animated" data-wow-delay=".5s">
-						<a href="images/g2.jpg" class="b-link-stripe b-animate-go  swipebox">
-							<div class="gal-spin-effect vertical ">
-								<img src="images/g2.jpg" alt=" " />
-								<div class="gal-text-box">
-									<div class="info-gal-con">
-										<h4>Infirmary</h4>
-										<span class="separator"></span>
-										<p>Sit accusamus, vel blanditiis iure minima ipsa molestias minus laborum velit, nulla nisi hic quasi enim.</p>
-										<span class="separator"></span>
-										
-									</div>
-								</div>
-							</div>
-						</a>
+				</div>
+				<div class="row">
+					<form class="navbar-form navbar-left visible-xs-block visible-md-block visible-lg-block">
+						<div class="form-group">
+							<div class="label label-info">名称：</div>
+							<input type="search" class="form-control" placeholder="请输入模板名称"/>
+							<div class="label label-info">范围：</div>
+							<select class="form-control">
+								<option>个人</option>
+								<option>群体</option>
+								<option>校园</option>
+								<option>公司</option>
+							</select>
+							<input type="button" class="btn btn-info" value="搜索"/>
+						</div>						
+					</form>
+				</div>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<td>模板名称</td>
+							<td>创建时间</td>
+							<td>范围</td>
+							<td>类型</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>小儿感冒</td>
+							<td>2019-03-22 16:46</td>
+							<td>个人</td>
+							<td>检查</td>
+						</tr>
+					</tbody>
+					<tbody>
+						<tr>
+							<td>腱鞘炎</td>
+							<td>2019-03-22 16:47</td>
+							<td>个人</td>
+							<td>检查</td>
+						</tr>
+					</tbody>
+					<tbody>
+						<tr>
+							<td>肩周炎</td>
+							<td>2019-03-22 16:48</td>
+							<td>个人</td>
+							<td>检查</td>
+						</tr>
+					</tbody>
+					<tbody>
+						<tr>
+							<td>骨外伤</td>
+							<td>2019-03-22 16:48</td>
+							<td>个人</td>
+							<td>检查</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="row" style="float:right">
+					<nav>
+			        	<ul class="pagination">
+			        		<li><a href="#">上页</a></li>
+			                <li><a href="#">1</a></li>
+			                <li><a href="#">2</a></li>
+			                <li><a href="#">3</a></li>
+			                <li><a href="#">...</a></li>
+			                <li><a href="#">下页</a></li>
+			        	</ul>
+			        </nav>
+			    </div>
+			</div>
+			
+			<!--右边模板-->
+			<div id="rightPanel" class="col-md-6">
+				<div class="row bg-warning" style="vertical-align: middle; margin-left:3px; margin-right: 3px;">
+					<div class="label label-info" style="float:left; height:50%; ">操作</div>
+					<div style="float:left; background: ; margin-left: 200px;">
+						<i class="glyphicon glyphicon-ok" style="color: #00FFFF;margin-left:60px;"></i>
+						<a>修改模板</a>
+						<i class="glyphicon glyphicon-trash" style="color: #00FFFF; margin-left:50px;"></i>
+						<a>删除模板</a>
 					</div>
-					<div class="col-md-3 baner-top ban-mar wow fadeInUp animated" data-wow-delay=".5s">
-						<a href="images/c1.jpg" class="b-link-stripe b-animate-go  swipebox">
-							<div class="gal-spin-effect vertical ">
-								<img src="images/c1.jpg" alt=" " />
-								<div class="gal-text-box">
-									<div class="info-gal-con">
-										<h4>Infirmary</h4>
-										<span class="separator"></span>
-										<p>Sit accusamus, vel blanditiis iure minima ipsa.</p>
-										<span class="separator"></span>
-										
-									</div>
-								</div>
-							</div>
-						</a>
+				</div>
+				<!--模板内容-->
+				<div class="panel panel-info" style="margin-top:10px;">
+					<div class="panel-heading" style="text-align: center;vertical-align: middle;">
+						模板明细
 					</div>
-					<div class="col-md-3 baner-top ban-mar wow fadeInDown animated" data-wow-delay=".5s">
-						<a href="images/c2.jpg" class="b-link-stripe b-animate-go  swipebox">
-							<div class="gal-spin-effect vertical ">
-								<img src="images/c2.jpg" alt=" " />
-								<div class="gal-text-box">
-									<div class="info-gal-con">
-										<h4>Infirmary</h4>
-										<span class="separator"></span>
-										<p>Sit accusamus, vel blanditiis iure minima ipsa.</p>
-										<span class="separator"></span>
-										
-									</div>
-								</div>
+					<div class="panel-body">
+						<form>
+							<div class="form-group">
+								<label for="">模板名称</label>
+								<input type="text" placeholder="请输入模板名称" class="form-control"/>	
+							</div>	
+							<div class="form-group">
+								<label for="">创建时间</label>
+								<input placeholder="将输入框改为时间组件" class="form-control" disabled="disabled"></input>						
 							</div>
-						</a>
-					</div>
-					<div class="col-md-3 baner-top ban-mar wow fadeInUp animated" data-wow-delay=".5s">
-						<a href="images/c3.jpg" class="b-link-stripe b-animate-go  swipebox">
-							<div class="gal-spin-effect vertical ">
-								<img src="images/c3.jpg" alt=" " />
-								<div class="gal-text-box">
-									<div class="info-gal-con">
-										<h4>Infirmary</h4>
-										<span class="separator"></span>
-										<p>Sit accusamus, vel blanditiis iure minima ipsa.</p>
-										<span class="separator"></span>
-										
-									</div>
-								</div>
+							<div class="form-group">
+								<label for="">模板范围</label>
+								<input class="form-control" value="全院"></input>					
 							</div>
-						</a>
-					</div>
-					<div class="col-md-3 baner-top ban-mar wow fadeInUp animated" data-wow-delay=".5s">
-						<a href="images/c4.jpg" class="b-link-stripe b-animate-go  swipebox">
-							<div class="gal-spin-effect vertical ">
-								<img src="images/c4.jpg" alt=" " />
-								<div class="gal-text-box">
-									<div class="info-gal-con">
-										<h4>Infirmary</h4>
-										<span class="separator"></span>
-										<p>Sit accusamus, vel blanditiis iure minima ipsa.</p>
-										<span class="separator"></span>
-										
-									</div>
-								</div>
+							<div class="form-group">
+								<label for="">记录类型</label>
+								<input  class="form-control" value="检查"></input>					
 							</div>
-						</a>
+						</form>
 					</div>
-					<div class="col-md-6 baner-top wow fadeInRight animated" data-wow-delay=".5s">
-						<a href="images/g7.jpg" class="b-link-stripe b-animate-go  swipebox">
-							<div class="gal-spin-effect vertical ">
-								<img src="images/g7.jpg" alt=" " />
-								<div class="gal-text-box">
-									<div class="info-gal-con">
-										<h4>Infirmary</h4>
-										<span class="separator"></span>
-										<p>Sit accusamus, vel blanditiis iure minima ipsa molestias minus laborum velit, nulla nisi hic quasi enim.</p>
-										<span class="separator"></span>
-										
-									</div>
-								</div>
-							</div>
-						</a>
+					
+					<div class="row">
+						<input type="button" class="btn btn-info" value="增加检验项目" style="margin-left: 30px">
 					</div>
-					<div class="col-md-6 baner-top wow fadeInLeft animated" data-wow-delay=".5s">
-						<a href="images/g8.jpg" class="b-link-stripe b-animate-go  swipebox">
-							<div class="gal-spin-effect vertical ">
-								<img src="images/g8.jpg" alt=" " />
-								<div class="gal-text-box">
-									<div class="info-gal-con">
-										<h4>Infirmary</h4>
-										<span class="separator"></span>
-										<p>Sit accusamus, vel blanditiis iure minima ipsa molestias minus laborum velit, nulla nisi hic quasi enim.</p>
-										<span class="separator"></span>
-										
-									</div>
-								</div>
-							</div>
-						</a>
-					</div>
-					<div class="clearfix"> </div>
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<td>项目编码</td>
+								<td>项目名称</td>
+								<td>项目规格</td>
+								<td>检查部位</td>
+								<td>操作</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>120200001</td>
+								<td>大抢救</td>
+								<td>日</td>
+								<td>全身</td>
+								<td><input type="button" class="btn btn-danger" value="删除"></input></td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td>121000001</td>
+								<td>洗胃</td>
+								<td>次</td>
+								<td>胃部</td>
+								<td><input type="button" class="btn btn-danger" value="删除"></input></td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 			</div>
+			
+		</div>
 	</div>
+</div>
 <!-- //gallery -->
 <!-- contact -->
 <div class="contact">

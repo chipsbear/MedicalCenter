@@ -68,8 +68,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="container">
 		<div class="header_left" data-wow-duration="2s" data-wow-delay="0.5s">
 			<ul>
-				<li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>+123 456 7890</li>
-				<li><a href="mailto:info@example.com"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>info@example.com</a></li>
+				<li><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>+177 0243 2482</li>
+				<li><a href="mailto:info@example.com"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>zhangshunbonev@163.com</a></li>
 			</ul>
 		</div>
 		<div class="header_right">
@@ -138,14 +138,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+				<div class="collapse navbar-collapse nav-wil links" id="bs-example-navbar-collapse-1">
 					<nav class="menu menu--horatio">
 						<ul class="nav navbar-nav menu__list">
-							<li class="menu__item menu__item--current"><a href="index.html" class="menu__link">Home</a></li>
-							<li class="menu__item"><a href="about.html" class="menu__link">About</a></li> 
-							<li class="menu__item"><a href="codes.html" class="menu__link">Short Codes</a></li> 
-							<li class="menu__item"><a href="gallery.html" class="menu__link">Gallery</a></li> 
-							<li class="menu__item"><a href="contact.html" class="menu__link">Contact</a></li>
+							<li class="menu__item menu__item--current"><a href="index.html" class="menu__link">病例首页</a></li>
+							<li class="menu__item "><a href="about.html" class="menu__link">检查申请</a></li> 
+							<li class="menu__item"><a href="codes.html" class="menu__link">成药处方</a></li> 
+							<li class="menu__item"><a href="gallery.html" class="menu__link">草药处方</a></li> 
+							<li class="menu__item "><a href="contact.html" class="menu__link">西医处方</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -154,8 +154,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 
 <!-- banner -->
-<div class="banner">
-
+<div class="banner" style="width:100%; height:200px;">
 				<script>
 						// You can also use "$(window).load(function() {"
 						$(function () {
@@ -242,47 +241,288 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="clearfix"></div>
 </div>
 <!-- //banner -->
-<!-- content -->
-<div class="content">
-	<div class="container">
-		<div class="col-md-4 content_right wow flipInY" data-wow-duration="1.5s" data-wow-delay="0.1s">
-			<img class="img-responsive" src="images/pic1.jpg" alt=" " />
+<!-- content 第二层 -->
+<!-- //content -->
+<div class="container" style="margin-top:20px;">			
+		<!--标签页-->
+		<div class="col-lg-3">
+		<div class="row">
+			<div class="label label-info">患者选择</div>
 		</div>
-		<div class="col-md-4 content_left wow flipInY" data-wow-duration="1.5s" data-wow-delay="0.2s">
-			<div class="welcome">
-				<h3>Welcome To Infirmary</h3>
-				<ul>
-					<li><a href="#">Accusantium Doloremque Accus</a></li>
-					<li><a href="#">Molestiae Consequatur Molestiae</a></li>
-					<li><a href="#">Nostrum Exercitationem Nostrum</a></li>
-					<li><a href="#">Consequuntur Magnidolor Nostrum</a></li>
-					<li><a href="#">Molestiae Consequatur Molestiae</a></li>
-					<li><a href="#">Nostrum Exercitationem Nostrum</a></li>
-					<li><a href="#">Consequuntur Magnidolor Nostrum</a></li>
-				</ul>
-			</div>
-		</div>
-		<div id="book" class="col-md-4 content_middle wow flipInY" data-wow-duration="1.5s" data-wow-delay="0.3s">
-			<h3>Book An Appointment</h3>
-			<form action="#" method="post">
-				<input type="text" name="Name" value="Name" onfocus="this.value='';" onblur="if(this.value=='') {this.value='Name';}" required="">
-				<input type="text" name="Email" value="Email" onfocus="this.value='';" onblur="if(this.value=='') {this.value='Email';}" required="">
-				<input class="date" name="19/10/2016" id="datepicker" type="text" value="19/10/2016" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '19/10/2016';}" required="">
-				<select id="country" onchange="change_country(this.value)" class="frm-field required sect">
-					<option value="null">Select Department</option>
-					<option value="null">Health Care</option> 
-					<option value="null">Body Checkup</option>					
-					<option value="null">Out Patient</option>
-					<option value="null">Surgery</option>											
-				</select>
-				<input type="submit" value="Book Now">
+		<div class="row">
+			<form class="col-md-12 navbar-form navbar-left visible-xs-block visible-md-block visible-lg-block">
+				<div class="form-group">
+					<div class="label label-info form-group">患者名：</div>
+					<input type="search" class="form-control" placeholder="请输入搜索关键字"/>
+					<input type="submit" class="btn btn-info" value="搜索"/>
+				</div>						
 			</form>
 		</div>
-		<div class="clearfix"></div>
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#benren" data-toggle="tab">本人</a></li>
+			<li><a href="#keshi" data-toggle="tab">科室<span style="color: red;">*</span></a></li>
+		</ul>
+		<!--标签页的内容-->
+		<div class="tab-content">
+			<div id="benren" class="tab-pane active">
+				<p>未诊患者</p>
+				<div class="alert alert-info">
+					暂无数据
+				</div>
+				<p>已诊患者</p>
+				<!--条纹状-->
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<td>编号</td>
+							<td>姓名</td>
+							<td>发病症状</td>
+							<td>费用</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1001</td>
+							<td>李荣浩</td>
+							<td>发烧</td>
+							<td>1500</td>
+						</tr>
+						<tr>
+							<td>1002</td>
+							<td>王晓乐</td>
+							<td>腹痛</td>
+							<td>7500</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div id="keshi" class="tab-pane">
+				<p>神经外科</p>
+				<div class="alert alert-info">
+					暂无数据
+				</div>
+				<p>神经内科</p>
+				<div class="alert alert-info">
+					暂无数据
+				</div>
+				<p>儿科内科</p>
+				<div class="alert alert-info">
+					暂无数据
+				</div>
+			</div>
+		</div>
+	</div>		
+
+	<div class="col-lg-9">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#">病历首页</a></li>
+			<li><a href="Check_Application.html">检查申请</a></li>
+			<li><a href="#jianyan" data-toggle="tab">检验申请<span style="color: red;">*</span></a></li>
+			<li><a href="#menzhen" data-toggle="tab">门诊确诊<span style="color: red;">*</span></a></li>
+			<li><a href="#chuzhi" data-toggle="tab">处置申请<span style="color: red;">*</span></a></li>
+			<li><a href="Prescription_of_patent_medicine.html">成药处方</a></li>
+			<li><a href="DoctorMoban.html">草药处方<span style="color: red;">*</span></a></li>
+			<li><a href="Western_medicine_template.html">西医模板<span style="color: red;">*</span></a></li>
+		</ul>
+	
+	<div class="tab-content" style="margin-top : 10px;">
+		<div id="shouye" class="tab-pane active">
+				<div class="row bg-success" style="margin-left:3px; margin-right: 3px">
+					<div style="float:left;background:; margin-left: 100px; margin-right: 20px; ">
+						<i class="glyphicon glyphicon-list-alt" style="color: #00FFFF;"></i>
+						<a>暂存</a>
+					</div>
+					<div style="float:left;background: ; margin-left: 50px; margin-right: 20px; ">
+						<i class="glyphicon glyphicon-ok" style="color: #00FFFF;"></i>
+						<a >提交</a>
+					</div>
+					<div style="float:left;background: ; margin-left: 50px; margin-right: 20px; ">
+						<i class="glyphicon glyphicon-resize-full" style="color: #00FFFF;"></i>
+						<a >清空所有</a>
+					</div>
+					<div style="float:left;background: ; margin-left: 50px; margin-right: 20px; ">
+						<i class="glyphicon glyphicon-refresh" style="color: #00FFFF;"></i>
+						<a >刷新</a>
+					</div>
+				</div>
+			
+				<!--病史内容-->
+				<div class="panel panel-info" style="margin-top:10px;">
+					<div class="panel-heading">
+						病史内容
+					</div>
+					<form>
+						<div class="form-group">
+							<label for="">主诉</label>
+							<input type="text" placeholder="请输入主诉医生" class="form-control"/>	
+						</div>	
+						<div class="form-group">
+							<label for="">现病史</label>
+							<textarea placeholder="请输入既往史" class="form-control"></textarea>						
+						</div>
+						<div class="form-group">
+							<label for="">现病治疗情况</label>
+							<textarea placeholder="请输入当前治疗状况" class="form-control"></textarea>					
+						</div>
+						<div class="form-group">
+							<label for="">既往史</label>
+							<textarea placeholder="请输入既往史" class="form-control"></textarea>					
+						</div>
+						<div class="form-group">
+							<label for="">过敏史</label>
+							<textarea placeholder="无" class="form-control"></textarea>					
+						</div>
+						<div class="form-group">
+							<label for="">体格检查</label>
+							<textarea placeholder="无" class="form-control"></textarea>					
+						</div>
+						<div class="form-group">
+							<div class="col-md-4 col-md-offset-6">
+								<input type="button"  value="提交表单" class="btn btn-info"/>
+							</div>
+						</div>
+					</form>
+				</div>
+			
+			<!--评估诊断-->
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						评估诊断
+					</div>
+					<!--西医诊断-->
+					<div class="panel panel-default" style="margin-left:20px; margin-right: 20px">
+						<div class="panel-heading">
+							西医诊断
+						</div>
+						<table class="table table-striped">
+						<thead>
+							<tr>
+								<td>#</td>
+								<td>ICD编号</td>
+								<td>名称</td>
+								<td>发病时间</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><input type="checkbox"></input></td>
+								<td>1001</td>
+								<td>李荣浩</td>
+								<td>发烧</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox"></input></td>
+								<td>1002</td>
+								<td>王晓乐</td>
+								<td>腹痛</td>
+							</tr>
+						</tbody>
+						</table>
+					</div>
+					
+					<!--中医诊断-->
+					<div class="panel panel-default" style="margin-left:20px; margin-right: 20px">
+						<div class="panel-heading">
+							中医诊断
+						</div>
+						<div class="alert alert-info">
+							暂无数据
+						</div>
+					</div>
+				</div>
+		</div>
+		
+		<div id="jiancha" class="tab-pane">
+			<!--抬头图标-->
+			<div class="row bg-success" style="margin-left:3px; margin-right: 3px">
+				<div style="float:left;background:; margin-left: 70px; margin-right: 20px; ">
+					<i class="glyphicon glyphicon-plus" style="color: #00FFFF;"></i>
+					<a>新增项目</a>
+				</div>
+				<div style="float:left;background: ; margin-left: 30px; margin-right: 20px; ">
+					<i class="glyphicon glyphicon-minus" style="color: #00FFFF;"></i>
+					<a >删除项目</a>
+				</div>
+				<div style="float:left;background: ; margin-left: 30px; margin-right: 20px; ">
+					<i class="glyphicon glyphicon-ok" style="color: #00FFFF;"></i>
+					<a >开立项目</a>
+				</div>
+				<div style="float:left;background: ; margin-left: 30px; margin-right: 20px; ">
+					<i class="glyphicon glyphicon-trash" style="color: #00FFFF;"></i>
+					<a >作废项目</a>
+				</div>
+				<div style="float:left;background: ; margin-left: 30px; margin-right: 20px; ">
+					<i class="glyphicon glyphicon-file" style="color: #00FFFF;"></i>
+					<a >存为组套</a>
+				</div>
+				<div style="float:left;background: ; margin-left: 30px; margin-right: 20px; ">
+					<i class="glyphicon glyphicon-refresh" style="color: #00FFFF;"></i>
+					<a >刷新</a>
+				</div>
+			</div>
+			<div class="panel panel-default"  style="margin-left:3px; margin-right: 3px">
+				<div class="form-inline">
+					<div class="label label-info">本项目金额合计</div>
+					<div class="label label-danger"> 0 元 </div>
+				</div>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<td><input type="checkbox"></input></td>
+							<td>申请名称</td>
+							<td>项目名称</td>
+							<td>执行科室</td>
+							<td>执行状态</td>
+							<td>单价</td>
+							<td>结果</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><input type="checkbox"></input></td>
+							<td>模板：肩周炎</td>
+							<td>醛固酮测定</td>
+							<td>检验科</td>
+							<td>暂存</td>
+							<td>50</td>
+							<td>查看详细</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox"></input></td>
+							<td>模板：肩周炎</td>
+							<td>醛固酮测定</td>
+							<td>检验科</td>
+							<td>暂存</td>
+							<td>50</td>
+							<td>查看详细</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div id="jianyan" class="tab-pane">
+			
+		</div>
+		<div id="menzhen" class="tab-pane">
+			
+		</div>
+		<div id="chuzhi" class="tab-pane">
+			
+		</div>
+		<div id="chengyao" class="tab-pane">
+			
+		</div>
+		<div id="caoyao" class="tab-pane">
+			
+		</div>
+		<div id="feiyong" class="tab-pane">
+			
+		</div>
+	</div>
 	</div>
 </div>
-<!-- //content -->
-<!-- services -->
+
+<!-- services 权益维护层-->
 <div class="services">
 	<div class="container">
 		<div class="col-md-4 services_left wow bounceInDown" data-wow-duration="1.5s" data-wow-delay="0s">
@@ -465,8 +705,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<h3>Contact Us</h3>
 			<div class="strip"></div>
 			<ul class="con-icons">
-				<li><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>+123 456 7890</li>
-				<li><a href="mailto:info@example.com"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>info@example.com</a></li>
+				<li><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>+177 0243 2482</li>
+				<li><a href="mailto:info@example.com"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>zhangshunbonev@163.com</a></li>
 			</ul>
 			<ul class="fb_icons">
 				<li class="hvr-rectangle-out"><a class="fb" href="#"></a></li>
