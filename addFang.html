@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/bootstrap/js/bootstrap.js"></script>
+		<script type="text/javascript" src="js/bootstrap/js/bootstrap.min.js"></script>
+		<meta charset="UTF-8">
+		<title>addFang</title>
+	</head>
+	<body>
+		<div class="container">
+			<form class="form-horizontal col-md-10" id="form1">
+				<div class="form-group">
+					<label for=" " class="col-md-2">处方名称</label>
+					<div class="col-md-10">
+						<input type="text" id="fangName" name="fangName" placeholder="请输入处方名称 " class="form-control"/>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for=" " class="col-md-2">是否开立</label>
+					<div class="col-md-8">
+						<label for="" style="font-size: 14px;font-family:'楷体';"><input type="radio" name="shared" id="zero" value="1" checked="true" v-model="picked">不开立</input></label>
+						<label for="" style="font-size: 14px;font-family:'楷体';"><input type="radio" name="shared" id="one" value="0" v-model="picked">开立</input></label>
+					</div>
+					<!--picked={{picked}}-->
+				</div>
+				
+				<!--增加和返回-->
+				<div class="form-group">
+					<div class="col-md-offset-4 col-md-4 ">
+						<input type="button" value="返回 " class="btn btn-warning btn-block" @click="back();" />
+					</div>
+					<div class="col-md-4 ">
+						<input type="button" id="addBtn" value="增加" class="btn btn-primary btn-block" @click="addFang();" />
+					</div>
+				</div>
+			</form>
+		</div>
+		
+		<script type="text/javascript" src="js/bootstrap/js/bootstrap.js"></script>
+		<script type="text/javascript" src="js/bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/layer/layer.js"></script>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/ecmascript" src="js/vue2.5.js"></script>
+		<script>
+			var v = new Vue({
+				el:".container",
+				data:{
+					picked:'1',
+				},
+				methods:{
+					back:function(){
+						//alert("1111");
+						window.parent.location.href="codes.html";
+					},
+					
+					addFang:function(){
+						//alert("111");
+						var fangname = $('#fangName').val();
+						//var fangnamebase64 = base_encode(fangname);
+						if(fangname==undefined||fangname==""){
+							layer.msg("请输入处方名称");
+						}else {
+							window.parent.location.href="codes.html?state=1&fangName="+fangname+"&kaili="+this.picked;
+						}
+					},
+				},
+			});
+		</script>
+	</body>
+</html>
