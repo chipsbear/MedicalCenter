@@ -46,15 +46,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="container">
 		<div class="header_left" data-wow-duration="2s" data-wow-delay="0.5s">
 			<ul>
-				<li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>+123 456 7890</li>
-				<li><a href="mailto:info@example.com"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>info@example.com</a></li>
+				<li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>+17702432482</li>
+				<li><a href="mailto:info@example.com"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>zhangshunbonev@163.com</a></li>
 			</ul>
 		</div>
 		<div class="header_right">
 			<div class="login">
 				<ul>
-					<li><a href="#" data-toggle="modal" data-target="#myModal4"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Login</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#myModal5"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Signup</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#myModal4"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>登录</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#myModal5"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>注册</a></li>
 					<li>
 						<div class="search-bar">
 							<div class="search">		
@@ -172,11 +172,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div style="float:left;background: ; margin-left: 200px;">
 				<i class="glyphicon glyphicon-plus" style="color: #00FFFF;"></i>
-				<a >增药</a>
+				<a @click="addyao();">增药</a>
 			</div>
 			<div style="float:left;background: ; margin-left: 50px;">
 				<i class="glyphicon glyphicon-minus" style="color: #00FFFF;"></i>
-				<a >删药</a>
+				<a @click="confirmdelyao();">删药</a>
 			</div>
 		</div>
 		
@@ -204,7 +204,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="col-md-8">
 		<div class="form-inline">
 			<div class="label label-info" style="background-color: #ECF5FF; color: #69B5FF;">本处方合计</div>
-			<div class="label label-danger" style="background-color: #FCF2E0; color: #EBB594;"> 21.90 元 </div>
+			<div class="label label-danger" style="background-color: #FCF2E0; color: red;"> {{allpricer}} 元 </div>
 		</div>
 		<table class="table table-striped">
 			<thead>
@@ -220,31 +220,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>0.9%氯化钠注射液(塑瓶)</td>
-					<td>0.9g:100ml*1瓶</td>
-					<td>6.34</td>
-					<td>静脉注射</td>
-					<td>100ml</td>
-					<td>一日一次</td>
-					<td>1</td>
-				</tr>
-			</tbody>
-			<tbody>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>复方甘露醇注射液(申宁)</td>
-					<td>250ml*1袋</td>
-					<td>15.56</td>
-					<td>静脉注射</td>
-					<td>200ml</td>
-					<td>一日一次</td>
-					<td>1</td>
+				<tr v-for="(item, index) in yaopin">
+					<td><input v-model="checkIds" type="checkbox" id="yao" name="yao" :value="item.yaoId"></td>
+					<td>{{item.yaopinname}}</td>
+					<td>{{item.guige}}</td>
+					<td>{{item.price}}</td>
+					<td>{{item.yongfa}}</td>
+					<td>{{item.yongliang}}</td>
+					<td>{{item.pinci}}</td>
+					<td>{{item.num}}</td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
+	<!--{{checkIds}}-->
 	
 	<!--tab-->
 	<ul class="nav nav-tabs">
@@ -260,7 +249,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="row">
 					<form class="navbar-form navbar-left visible-xs-block visible-md-block visible-lg-block">
 						<div class="form-group">
-							<input type="button" class="btn btn-info" disabled="disabled" style="background:darkgrey; border-color:darkgrey;" value="名称："></input>
+							<input type="button" class="btn btn-info" disabled="disabled" style="background:darkgrey; border-color:darkgrey; font-family: '微软雅黑';" value="名称："></input>
 							<input type="search" id="searchkey" class="form-control" placeholder="请输入搜索关键字"/>
 							<input type="button" id="searchbutton" class="btn btn-info" value="搜索" @click="search();"/>
 						</div>						
@@ -274,7 +263,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</tr>
 					</thead>
 					<tbody>
-						<tr v-for="(item, index) in modelname">
+						<tr v-for="(item, index) in modelshow">
 							<td>{{item.name}}</td>
 							<td>{{item.scale}}</td>
 						</tr>
@@ -487,7 +476,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						{name: "流行病腮腺炎NOS" , scale: "个人"}
 					],
 					//显示数组
-					modelshow:[],
+					modelshow:[
+						{name: "春季常发病感冒" , scale: "全税"},
+						{name: "春季常发感冒" , scale: "个人"},
+						{name: "流行病腮腺炎NOS" , scale: "个人"}
+					],
 					
 					//门诊处方原数组
 					chufang:[
@@ -500,7 +493,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						{fangname: "重症肌无力", kaili: 1}
 					],
 					
+					//药品
+					yaopin:[
+						{yaoId: 0, yaopinname:"0.9%氯化钠注射液(塑瓶)", guige:"0.9g:100ml*1瓶", price:6.34, yongfa:"静脉注射", yongliang:"100ml", pinci:"一日一次", num:	1},
+						{yaoId: 1, yaopinname:"复方甘露醇注射液(申宁)", guige:"250ml*1袋", price:15.56, yongfa:"静脉注射", yongliang:"200ml", pinci:"一日一次", num:	1}
+					],
+					
 					picked:'0',
+					allpricer:21.91,
+					checkIds:[],
 				},
 				methods:{
 					//初始化赋值
@@ -522,7 +523,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								//"chufang="+this.chufang);
 						}
 					},
-				
+					
+					showallprice:function(){
+						var all = 0;
+						v.yaopin.forEach((item) => {
+							all = all + item.price;
+							//alert(item);
+						});
+						v.allpricer = all;
+					},
+					
+					/**
+					 * 左下角，查询
+					 */
+					//查询模版
 					search:function(){
 						var keyword = $('#searchkey').val();
 						if(keyword==undefined||keyword==""){
@@ -533,28 +547,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						}
 					},
 					
+					//查询关键字
+					query:function(kayword){
+						//var
+					},
+					
 					//查询关键字的方法
 					query:function(key){
-						var index = 0; 
-						var removearray=[];
+						/*var index = 0; 
+						var removearray=[];*/
+						v.modelshow=[];
 						this.modelname.forEach((item) => {
 							/*存在返回0，不存在返回1*/
 							//alert("index="+index+"item.name.indexOf(key)"+item.name.indexOf(key));
-							if(item.name.indexOf(key)<=0){
-								removearray.push(index);
+							if(item.name.indexOf(key)>=0){
+								v.modelshow.push(item);
 							}
-							index++;
 						});
 						
-						alert(removearray);
+						//alert(v.modelshow);
 						
-						while(removearray[0]!=undefined){
+						/*while(removearray[0]!=undefined){
 							var removeNum = removearray.pop();
 							alert("removeNum="+removeNum);
 							this.modelname.splice(removeNum,1);
-						}
+						}*/
 					},
 					
+					/**
+					 * 左上角：增加药方
+					 */
+					//增加药方
 					addfang:function(){
 						layer.open({
 							title:'操作：增加药方',
@@ -586,6 +609,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							}
 					},
 					
+					//开立
 					kaili:function(){
 						var kaili = v.chufangshow[v.picked].kaili;
 						if(kaili==0){
@@ -605,7 +629,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 						}
 					},
-					
+					//作废药方
 					zuofei:function(){
 						layer.confirm('确认作废这条处方记录？', {
 								  btn: ['确认', '取消'] //可以无限个按钮
@@ -619,10 +643,64 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								   return false;
 								});
 					},
+					
+					/**
+					 * 右上角，增加药品
+					 */
+					//增药
+					addyao:function(){
+						layer.open({
+							title:'操作：增加药品',
+							type: 2,
+							area:['600px','500px'],
+							content: "addyao.html",
+						});
+					},
+					
+					confirmdelyao:function(){
+						/*layer是异步的，就是不是一步一步往下执行的*/
+						layer.confirm('确认删除这个药品？', {
+							  btn: ['确认', '取消'] //可以无限个按钮
+							  ,btn1: function(index, layero){
+								v.delyao();
+							    layer.close(index);
+						     }
+						}, function(index, layero){
+						   return false;
+						});
+					},
+					
+					delyao:function(){
+							//确认
+						    //alert("index="+index,"layero="+layero);
+						    var deletenum=[];
+						    deletenum = v.checkIds;
+						    console.log("deletenum="+deletenum+"v.checkIds="+v.checkIds);
+						    
+						    while(deletenum.length!=0){
+						    	var removeId = parseInt(deletenum.pop()); 
+						    	console.log("removeId="+removeId);
+							    v.yaopin.forEach((item) => {
+									console.log("deletenum="+deletenum.length);
+							    	console.log("item.yaoId="+item.yaoId+"removeId="+removeId);
+							    	var sub = item.yaoId-removeId;
+							    	console.log("★★★★★item.yaoId - removeId="+ sub)
+						    		if((item.yaoId-removeId)==0){
+						    			//alert("here is done");
+						    			console.log("deletenum="+deletenum);
+						    			//splice与slice混淆
+						    			v.yaopin.splice(item.yaoId,1);
+						    		}
+							    });
+						    }
+						    v.showallprice();
+					},
+					
 				},
 			})
 			
 			v.fuzhi();
+			v.showallprice();
 		</script>
 </body>
 </html>

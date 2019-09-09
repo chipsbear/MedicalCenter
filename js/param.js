@@ -72,9 +72,15 @@ function getCharFromUtf8(str) {
 
 //将编码转换成字符  
 function utf8ToChar(str) {  
-var iCode, iCode1, iCode2;  
-    iCode = parseInt("0x" + str.substr(1, 2));  
-    iCode1 = parseInt("0x" + str.substr(4, 2));  
-    iCode2 = parseInt("0x" + str.substr(7, 2));  
-return String.fromCharCode(((iCode & 0x0F) << 12) | ((iCode1 & 0x3F) << 6) | (iCode2 & 0x3F));  
+	var iCode, iCode1, iCode2;  
+	    iCode = parseInt("0x" + str.substr(1, 2));  
+	iCode1 = parseInt("0x" + str.substr(4, 2));  
+	iCode2 = parseInt("0x" + str.substr(7, 2));  
+	return String.fromCharCode(((iCode & 0x0F) << 12) | ((iCode1 & 0x3F) << 6) | (iCode2 & 0x3F));  
 } 
+
+/*能够进行查找，已弃用*/
+function queryKeyWord(array, keyword){
+	var newarray = [];
+	
+}
