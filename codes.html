@@ -521,6 +521,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							this.chufang=this.chufangshow;
 							//alert("chufangshow="+this.chufangshow+
 								//"chufang="+this.chufang);
+						} else if(state==2){
+							console.log("state="+state);
+							var yaoName = getUrlParam("yaoName");
+							var price = parseFloat(getParam("price"));
+							var num = parseInt(getParam("num"));
+							var guige = getUrlParam("guige");
+							var yongfa = getUrlParam("yongfa");
+							var yongliang = getUrlParam("yongliang");
+							var pinci = getUrlParam("pinci");
+							var yaolength = v.yaopin.length;
+							console.log("yaolength"+yaolength);
+							
+							var yaoadd = {yaoId:yaolength, yaopinname:yaoName, guige:guige, price:price, yongfa:yongfa, yongliang:yongliang, pinci:pinci, num:num};
+							this.yaopin.splice(yaolength, 0, yaoadd);
 						}
 					},
 					
@@ -695,6 +709,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						    }
 						    v.showallprice();
 					},
+					
 					
 				},
 			})

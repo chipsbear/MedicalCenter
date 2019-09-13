@@ -14,14 +14,15 @@
 				<div class="form-group">
 					<label for=" " class="col-md-2">药品名称</label>
 					<div class="col-md-10">
-						<input type="text" id="fangName" name="fangName" placeholder="请输入药品名称 " class="form-control"/>
+						<input type="text" id="yaoName" name="yaoName" placeholder="请输入药品名称 " class="form-control"/>
 					</div>
 				</div>
 				
 				<div class="form-group">
 					<label for=" " class="col-md-2">请选择规格</label>
 					<div class="col-md-10">
-						<select class="form-control">
+						<select class="form-control" v-model="guige">
+								<option disabled value="">请选择</option>
 								<option>0.9g:100ml*1瓶</option>
 								<option>250ml*1袋</option>
 								<option>125ml*1袋</option>
@@ -41,7 +42,8 @@
 				<div class="form-group">
 					<label for=" " class="col-md-2">请选择用法</label>
 					<div class="col-md-10">
-						<select class="form-control">
+						<select class="form-control" v-model="yongfa">
+								<option disabled value="">请选择</option>
 								<option>静脉注射</option>
 								<option>斜颈脉注射</option>
 								<option>皮试</option>
@@ -54,7 +56,8 @@
 				<div class="form-group">
 					<label for=" " class="col-md-2">请选择用量</label>
 					<div class="col-md-10">
-						<select class="form-control">
+						<select class="form-control" v-model="yongliang">
+								<option disabled value="">请选择</option>
 								<option>100ml*1瓶</option>
 								<option>250ml*1袋</option>
 								<option>125ml*1袋</option>
@@ -67,7 +70,8 @@
 				<div class="form-group">
 					<label for=" " class="col-md-2">请选择频次</label>
 					<div class="col-md-10">
-						<select class="form-control">
+						<select class="form-control" v-model="pinci">
+								<option disabled value="">请选择</option>
 								<option>一日三次</option>
 								<option>一日两次</option>
 								<option>一日一次</option>
@@ -78,9 +82,9 @@
 				</div>
 				
 				<div class="form-group">
-					<label for=" " class="col-md-2">请输入数量</label>
+					<label for=" " class="col-md-2" v-model="shuliang">请输入数量</label>
 					<div class="col-md-10">
-						<input type="number" id="price" name="price" placeholder="请输入药品数量 " class="form-control"/>
+						<input type="number" id="num" name="num" placeholder="请输入药品数量 " class="form-control"/>
 					</div>
 					<!--picked={{picked}}-->
 				</div>
@@ -91,11 +95,61 @@
 						<input type="button" value="返回 " class="btn btn-warning btn-block" @click="back();" />
 					</div>
 					<div class="col-md-4 ">
-						<input type="button" id="addBtn" value="增加" class="btn btn-primary btn-block" @click="addFang();" />
+						<input type="button" id="addBtn" value="增加" class="btn btn-primary btn-block" @click="addyao();" />
 					</div>
 				</div>
 			</form>
 		</div>
 		
+		<script type="text/javascript" src="js/bootstrap/js/bootstrap.js"></script>
+		<script type="text/javascript" src="js/bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/layer/layer.js"></script>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/ecmascript" src="js/vue2.5.js"></script>
+		<script>
+			var v = new Vue({
+				el:".container",
+				data:{
+					//select组件的传值：不等于button的dropdown的组件
+					guige:'',
+					yongfa:'',
+					yongliang:'',
+					pinci:'',
+				},
+				methods:{
+					back:function(){
+						//alert("1111");
+						window.parent.location.href="codes.html";
+					},
+					
+					//一直点不开，原因是因为少了function
+					addyao:function(){
+						//var yaoName = $('#yaoName').val();
+						var yaoName = $('#yaoName').val();
+						var price = $('#price').val();
+						var num = $('#num').val();
+						if(yaoName==undefined||yaoName==""){
+							layer.msg("请输入药品名称");
+						}if(price==undefined||price==""){
+							layer.msg("请输入药品单价");
+						}if(num==undefined||num==""){
+							layer.msg("请输入数量");
+						}if(v.guige==undefined||v.guige==""){
+							layer.msg("请选择规格");
+						}if(v.yongfa==undefined||v.yongfa==""){
+							layer.msg("请输入选择");
+						}if(v.yongliang==undefined||v.yongliang==""){
+							layer.msg("请输入用量");
+						}if(v.pinci==undefined||v.pinci==""){
+							layer.msg("请输入频次");
+						}else {
+							window.parent.location.href="codes.html?state=2&yaoName="+yaoName+"&price="+price+"&num="+num+"&guige="+v.guige
+							+"&yongfa="+v.yongfa+"&yongliang="+v.yongliang+"&pinci="+v.pinci;
+						}
+					}
+				}
+				
+			});
+		</script>
 	</body>
 </html>
