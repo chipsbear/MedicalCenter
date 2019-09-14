@@ -243,18 +243,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //banner -->
 <!-- content 第二层 -->
 <!-- //content -->
-<div class="container" style="margin-top:20px;">			
+<div class="container">
+<div class="container2">			
 		<!--标签页-->
-		<div class="col-lg-3">
+		<div class="col-md-4">
 		<div class="row">
 			<div class="label label-info">患者选择</div>
 		</div>
 		<div class="row">
 			<form class="col-md-12 navbar-form navbar-left visible-xs-block visible-md-block visible-lg-block">
 				<div class="form-group">
-					<div class="label label-info form-group">患者名：</div>
-					<input type="search" class="form-control" placeholder="请输入搜索关键字"/>
-					<input type="submit" class="btn btn-info" value="搜索"/>
+					<input type="button" class="btn btn-info"  disabled="disabled" style="background:darkgrey; border-color:darkgrey; font-family: '微软雅黑';" value="患者名："></input>
+					<input type="text" id="searchkey" class="form-control" placeholder="请输入搜索关键字"/>
+					<input type="button" class="btn btn-info" value="搜索" @click="search();"/>
 				</div>						
 			</form>
 		</div>
@@ -281,17 +282,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>1001</td>
-							<td>李荣浩</td>
-							<td>发烧</td>
-							<td>1500</td>
-						</tr>
-						<tr>
-							<td>1002</td>
-							<td>王晓乐</td>
-							<td>腹痛</td>
-							<td>7500</td>
+						<tr v-for="(item, index) in patientShow">
+							<td>{{item.bianhao}}</td>
+							<td>{{item.name}}</td>
+							<td>{{item.sysmthom}}</td>
+							<td>{{item.price}}</td>
 						</tr>
 					</tbody>
 				</table>
@@ -313,36 +308,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>		
 
-	<div class="col-lg-9">
-		<ul class="nav nav-tabs">
-			<li class="active"><a href="#">病历首页</a></li>
-			<li><a href="Check_Application.html">检查申请</a></li>
-			<li><a href="#jianyan" data-toggle="tab">检验申请<span style="color: red;">*</span></a></li>
-			<li><a href="#menzhen" data-toggle="tab">门诊确诊<span style="color: red;">*</span></a></li>
-			<li><a href="#chuzhi" data-toggle="tab">处置申请<span style="color: red;">*</span></a></li>
-			<li><a href="Prescription_of_patent_medicine.html">成药处方</a></li>
-			<li><a href="DoctorMoban.html">草药处方<span style="color: red;">*</span></a></li>
-			<li><a href="Western_medicine_template.html">西医模板<span style="color: red;">*</span></a></li>
-		</ul>
-	
+	<div class="col-md-8">
+		<div class="row" style="margin-left:2px;">
+			<input type="button" class="btn btn-info"  disabled="disabled" style="background: #ECF5FF; border-color: #ECF5FF; color: #699EFF;" value="隐藏患者栏"></input>
+			<span style="margin-left:5px;"> 患者姓名：卢照邻 病历号：600606 年龄：33 性别：男</span>
+			<span style="color:#68BCFF; float:right; margin-right: 35px; vertical-align: middle;">诊毕</span>
+		</div>
 	<div class="tab-content" style="margin-top : 10px;">
 		<div id="shouye" class="tab-pane active">
 				<div class="row bg-success" style="margin-left:3px; margin-right: 3px">
 					<div style="float:left;background:; margin-left: 100px; margin-right: 20px; ">
 						<i class="glyphicon glyphicon-list-alt" style="color: #00FFFF;"></i>
-						<a>暂存</a>
+						<a @click="zancun();">暂存</a>
 					</div>
 					<div style="float:left;background: ; margin-left: 50px; margin-right: 20px; ">
 						<i class="glyphicon glyphicon-ok" style="color: #00FFFF;"></i>
 						<a >提交</a>
 					</div>
 					<div style="float:left;background: ; margin-left: 50px; margin-right: 20px; ">
-						<i class="glyphicon glyphicon-resize-full" style="color: #00FFFF;"></i>
-						<a >清空所有</a>
+						<i class="glyphicon glyphicon-trash" style="color: #00FFFF;"></i>
+						<a @click="trash();">清空所有</a>
 					</div>
 					<div style="float:left;background: ; margin-left: 50px; margin-right: 20px; ">
 						<i class="glyphicon glyphicon-refresh" style="color: #00FFFF;"></i>
 						<a >刷新</a>
+					</div>
+					<div style="float:left;background: ; margin-left: 50px; margin-right: 20px; ">
+						<i class="glyphicon glyphicon-wrench" style="color: #00FFFF;"></i>
+						<a @click="huifu();">恢复暂存</a>
 					</div>
 				</div>
 			
@@ -351,37 +344,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="panel-heading">
 						病史内容
 					</div>
-					<form>
-						<div class="form-group">
-							<label for="">主诉</label>
-							<input type="text" placeholder="请输入主诉医生" class="form-control"/>	
-						</div>	
-						<div class="form-group">
-							<label for="">现病史</label>
-							<textarea placeholder="请输入既往史" class="form-control"></textarea>						
-						</div>
-						<div class="form-group">
-							<label for="">现病治疗情况</label>
-							<textarea placeholder="请输入当前治疗状况" class="form-control"></textarea>					
-						</div>
-						<div class="form-group">
-							<label for="">既往史</label>
-							<textarea placeholder="请输入既往史" class="form-control"></textarea>					
-						</div>
-						<div class="form-group">
-							<label for="">过敏史</label>
-							<textarea placeholder="无" class="form-control"></textarea>					
-						</div>
-						<div class="form-group">
-							<label for="">体格检查</label>
-							<textarea placeholder="无" class="form-control"></textarea>					
-						</div>
-						<div class="form-group">
-							<div class="col-md-4 col-md-offset-6">
-								<input type="button"  value="提交表单" class="btn btn-info"/>
+					<div class="panel-body">
+						<form>
+							<div class="form-group">
+								<label for="">主诉</label>
+								<input type="text" id="zhusu" placeholder="请输入主诉医生" class="form-control"/>	
+							</div>	
+							<div class="form-group">
+								<label for="">现病史</label>
+								<textarea id="xianbingshi" placeholder="请输入既往史" class="form-control"></textarea>						
 							</div>
-						</div>
-					</form>
+							<div class="form-group">
+								<label for="">现病治疗情况</label>
+								<textarea id="zhiliaoqingkuang" placeholder="请输入当前治疗状况" class="form-control"></textarea>					
+							</div>
+							<div class="form-group">
+								<label for="">既往史</label>
+								<textarea id="jiwangshi" placeholder="请输入既往史" class="form-control"></textarea>					
+							</div>
+							<div class="form-group">
+								<label for="">过敏史</label>
+								<textarea id="guominshi" placeholder="无" class="form-control"></textarea>					
+							</div>
+							<div class="form-group">
+								<label for="">体格检查</label>
+								<textarea id="tigejiancha" placeholder="无" class="form-control"></textarea>					
+							</div>
+							<div class="form-group">
+								<div class="col-md-4 col-md-offset-8">
+									<input type="button" value="提交表单" class="btn btn-info form-control"/>
+								</div>
+							</div>
+						</form>
+					</div>
 				</div>
 			
 			<!--评估诊断-->
@@ -520,6 +515,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 	</div>
+</div>
 </div>
 
 <!-- services 权益维护层-->
@@ -814,7 +810,132 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 <!-- //login -->
-<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap/js/bootstrap.js"></script>
+		<script type="text/javascript" src="js/bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/layer/layer.js"></script>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/ecmascript" src="js/vue2.5.js"></script>
+		<script type="text/javascript" src="js/param.js"></script>
+		<script>
+			var v = new Vue({
+				el:'.container2',
+				data:{
+					patient:[
+					{patientId: 0, bianhao: 1001, name:"李荣浩", sysmthom:"发烧", price:1500},
+					{patientId: 1, bianhao: 1002, name:"王晓乐", sysmthom:"腹痛", price:7500}
+					],
+					
+					patientShow:[
+					{patientId: 0, bianhao: 1001, name:"李荣浩", sysmthom:"发烧", price:1500},
+					{patientId: 1, bianhao: 1002, name:"王晓乐", sysmthom:"腹痛", price:7500}
+					],
+				},
+				methods:{
+					fuzhi:function(){
+						localStorage.setItem("zancun",0);
+					},
+					
+					/**
+					 * 搜索病患
+					 */
+					search:function(){
+						//alert("here!!");
+						var keyword = $('#searchkey').val();
+						console.log("keyword"+keyword);
+						if(keyword==undefined||keyword==""){
+							layer.msg("请输入查询关键字");
+						}else {
+							console.log("keyword"+keyword);
+							//之前name显示不出的原因；data里面缺少逗号，没有数组；
+							v.patientShow = queryKeyWord(v.patient,keyword);
+							//alert("v.patientShow"+v.patientShow);
+						}
+					},
+					
+					/**
+					 * 暂存至病例首页
+					 */
+					zancun:function(){
+						var zhusu = $("#zhusu").val();
+						var xianbingshi = $("#xianbingshi").val();
+						var zhiliaoqingkuang = $("#zhiliaoqingkuang").val();
+						var jiwangshi = $("#jiwangshi").val();
+						var guominshi = $("#guominshi").val();
+						var tige = $("#tigejiancha").val();
+						console.log("zhiliaoqingkuang"+zhiliaoqingkuang);
+						if((zhusu==undefined||zhusu=="")&&(xianbingshi==undefined||xianbingshi=="")&&
+						(zhiliaoqingkuang==undefined||zhiliaoqingkuang=="")&&(jiwangshi==undefined||jiwangshi=="")&&
+						(guominshi==undefined||guominshi=="")&&(tige==undefined||tige=="")){
+							layer.msg("请至少输入一项内容");	
+						}
+						else{
+							layer.confirm('确认暂存当前病史内容？(暂存时长最多30min)', {
+							  btn: ['确认', '取消'] //可以无限个按钮
+							  ,btn1: function(index, layero){
+							    //确认
+							    //alert("index="+index,"layero="+layero);
+							    if(zhusu==undefined||zhusu==""){localStorage.setItem("zhusu","");}
+								else{localStorage.setItem("zhusu",zhusu);}
+								if(xianbingshi==undefined||xianbingshi==""){localStorage.setItem("xianbingshi","");}
+								else{localStorage.setItem("xianbingshi",xianbingshi);}
+								if(zhiliaoqingkuang==undefined||zhiliaoqingkuang==""){localStorage.setItem("zhiliaoqingkuang","");}
+								else{localStorage.setItem("zhiliaoqingkuang",zhiliaoqingkuang);}
+								if(jiwangshi==undefined||jiwangshi==""){localStorage.setItem("jiwangshi","");}
+								else{localStorage.setItem("jiwangshi",jiwangshi);}
+								if(guominshi==undefined||guominshi==""){localStorage.setItem("guominshi","");}
+								else{localStorage.setItem("guominshi",guominshi);}
+								if(tige==undefined||tige==""){localStorage.setItem("tige","");}
+								else{localStorage.setItem("tige",tige);}
+								localStorage.setItem("zancun",1);
+							    layer.close(index);
+							  }
+							}, function(index, layero){
+							   return false;
+							});
+							//layer.msg("暂存成功！");
+						}
+					},
+					/**
+					 * 恢复暂存数据
+					 */
+					huifu:function(){
+						var zancun = localStorage.getItem("zancun");
+						if(zancun==0){
+							layer.msg("没有暂存信息");
+						} else {
+							$("#zhusu").val(localStorage.getItem("zhusu"));
+							$("#xianbingshi").val(localStorage.getItem("xianbingshi"));
+							$("#zhiliaoqingkuang").val(localStorage.getItem("zhiliaoqingkuang"));
+							$("#jiwangshi").val(localStorage.getItem("jiwangshi"));
+							$("#guominshi").val(localStorage.getItem("guominshi"));
+							$("#tigejiancha").val(localStorage.getItem("tige"));
+						}
+					},
+					/**
+					 * 清空暂存数据
+					 */
+					trash:function(){
+						layer.confirm('确认清空数据？', {
+								  btn: ['确认', '取消'] //可以无限个按钮
+								  ,btn1: function(index, layero){
+								    //确认
+								    //alert("index="+index,"layero="+layero);
+									$("#zhusu").val("");
+									$("#xianbingshi").val("");
+									$("#zhiliaoqingkuang").val("");
+									$("#jiwangshi").val("");
+									$("#guominshi").val("");
+									$("#tigejiancha").val("");
+								    layer.close(index);
+								  }
+								}, function(index, layero){
+								   return false;
+								}
+						);
+					},
+				}
+			})
+		</script>
 </body>
 </html>
 

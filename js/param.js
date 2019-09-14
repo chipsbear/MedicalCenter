@@ -22,6 +22,11 @@ function getParam(key) {
 	}		
 }	
 
+/**
+ * 获取url中的特定元素
+ * @param {Object} jsonInfo
+ * @param {Object} key
+ */
 function getProperty(jsonInfo, key){
 	var allInfo = jsonInfo.substring(2, jsonInfo.length-2);
 	//alert(allInfo);
@@ -39,7 +44,9 @@ function getProperty(jsonInfo, key){
 		}
 	}
 }
-
+/**
+ * url字符串解决问题
+ */
 //获取url中的参数
 function getUrlParam(name) {
 	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
@@ -80,7 +87,14 @@ function utf8ToChar(str) {
 } 
 
 /*能够进行查找，已弃用*/
-function queryKeyWord(array, keyword){
-	var newarray = [];
-	
+function queryKeyWord(oldSearchElement, keyword){
+	var newResultElement= [];
+	console.log("oldSearchElement"+oldSearchElement);
+	oldSearchElement.forEach((item) => {
+		console.log("item.name="+item.name);
+		if(item.name.indexOf(keyword)>=0){
+			newResultElement.push(item);
+		}
+	});
+	return newResultElement;
 }
