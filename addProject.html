@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/bootstrap/js/bootstrap.js"></script>
+		<script type="text/javascript" src="js/bootstrap/js/bootstrap.min.js"></script>
+		<meta charset="UTF-8">
+		<title>ProjectAdd</title>
+	</head>
+	<body>
+		<div class="container">
+			
+			<div class="form-group">
+				<label for=" " class="col-md-2">项目申请名称</label>
+				<div class="col-md-10">
+					<input type="text" id="applyName" name="applyName" placeholder="请输入申请 " class="form-control"/>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for=" " class="col-md-2">项目名称</label>
+				<div class="col-md-10">
+					<input type="text" id="ProjectName" name="projectName" placeholder="请输入项目名称 " class="form-control"/>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for=" " class="col-md-2">请输入目的要求</label>
+				<div class="col-md-10">
+					<textarea id="xiangmumudi" placeholder="请输入项目目的" class="form-control"></textarea>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for=" " class="col-md-2">请选择执行科室</label>
+				<div class="col-md-10">
+					<select class="form-control" v-model="keshi">
+						<option disabled="disabled" value="">请选择</option>
+						<option>检验科</option>
+						<option>泌尿科</option>
+						<option>口腔科</option>
+						<option>影像科</option>
+						<option>神经科</option>
+						<option>外科</option>
+					</select>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for=" " class="col-md-2">执行状态</label>
+				<div class="col-md-10">
+					<input type="text" id="zhuangtai" disabled class="form-control" value="暂存"></input>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for=" " class="col-md-2">请选择检查部位</label>
+				<div class="col-md-10">
+					<select class="form-control" v-model="buwei">
+						<option disabled="disabled" value="">请选择</option>
+						<option>大腿腿部</option>
+						<option>胃部</option>
+						<option>肠腔</option>
+						<option>肩周</option>
+						<option>泌尿</option>
+						<option>脑部</option>
+					</select>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for=" " class="col-md-2">请输入项目单价</label>
+				<div class="col-md-10">
+					<input type="number" id="price" name="price" placeholder="请输入项目单价 " class="form-control"/>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for=" " class="col-md-2">请选择是否加急</label>
+				<div class="col-md-10">
+					<label for="" style="font-size: 14px; font-family: '楷体';"><input type="radio" name="jiaji" id="zero" value="1" v-model="picked">加急</input></label>
+					<label for="" style="font-size: 14px; font-family: '楷体';"><input type="radio" name="jiaji" id="one" value="0" v-model="picked">不加急</input><label>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<div class="col-md-offset-4 col-md-4 ">
+					<input type="button" value="返回 " class="btn btn-warning btn-block" @click="back();" />
+				</div>
+				<div class="col-md-4 ">
+					<input type="button" id="addBtn" value="增加" class="btn btn-primary btn-block" @click="addProject();" />
+				</div>
+			</div>
+		</div>
+					
+		<script type="text/javascript" src="js/bootstrap/js/bootstrap.js"></script>
+		<script type="text/javascript" src="js/bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/layer/layer.js"></script>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/ecmascript" src="js/vue2.5.js"></script>
+		
+		<script>
+			var v =new Vue({
+				el:".container",
+				data:{
+					buwei:"",
+					picked:"",
+					keshi:"",
+				},
+				methods:{
+					back:function(){
+						window.parent.location.href="about.html";
+					},
+					
+					addProject:function(){
+						var projectName = $("#ProjectName").val();
+						var xiangmumudi = $("#xiangmumudi").val();
+						var applyname = $("#applyName").val();
+						var price = $("#price").val();
+						
+						if(v.buwei==undefined||v.buwei==""){
+							layer.msg("请选择检查部位");
+						} else if(v.picked==undefined||v.picked==""){
+							layer.msg("请选择是否加急");
+						} else if(v.keshi==undefined||v.keshi==""){
+							layer.msg("请选择科室");
+						}  else if(projectName==undefined||projectName==""){
+							layer.msg("请输入项目名称");
+						}  else if(xiangmumudi==undefined||xiangmumudi==""){
+							layer.msg("请输入目的要求");
+						}  else if(applyname==undefined||applyname==""){
+							layer.msg("请输入申请名称");
+						}  else if(price==undefined||price==""){
+							layer.msg("请输入单价");
+						}  else {
+							window.parent.location.href = "about.html?state=1&buwei="+v.buwei+"&jiaji="+v.picked
+								+"&keshi="+v.keshi+"&projectname="+projectName+"&xiangmumudi="+xiangmumudi+"&applyname="+applyname
+								+"&price="+price +"&zhuangtai=" + "暂存";
+						}
+					},
+				},
+			})
+		</script>
+	</body>
+</html>

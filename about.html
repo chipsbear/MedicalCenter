@@ -104,7 +104,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 </div>
 <!-- //header -->
-<div class="header-bottom">
+<div class="container">
+<div class="container2" style="padding-right: 15px; padding-left: 0px; margin:5 5 10 5;">
+	<div class="header-bottom">
 		<div class="container">
 			<nav class="navbar navbar-default">
 				<!-- Brand and toggle get grouped for better mobile display -->
@@ -157,7 +159,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="row bg-success" style="margin-left:3px; margin-right: 3px">
 					<div style="float:left;background:; margin-left: 40px; ">
 						<i class="glyphicon glyphicon-plus" style="color: #00FFFF;"></i>
-						<a>新增项目</a>
+						<a @click="projectAdd();">新增项目</a>
 					</div>
 					<div style="float:left;background: ; margin-left: 20px;">
 						<i class="glyphicon glyphicon-minus" style="color: #00FFFF;"></i>
@@ -183,7 +185,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="panel panel-default"  style="margin-left:3px; margin-right: 3px">
 					<div class="form-inline">
 						<div class="label label-info">本项目金额合计</div>
-						<div class="label label-danger"> 0 元 </div>
+						<div class="label label-danger"> {{allpricer}} 元 </div>
 					</div>
 					<table class="table table-striped">
 						<thead>
@@ -198,22 +200,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
+							<tr v-for="(item, index) in project">
 								<td><input type="checkbox"></input></td>
-								<td>模板：肩周炎</td>
-								<td>醛固酮测定</td>
-								<td>检验科</td>
-								<td>暂存</td>
-								<td>50</td>
-								<td><a class="btn btn-default btn-xs">详细</a></td>
-							</tr>
-							<tr>
-								<td><input type="checkbox"></input></td>
-								<td>模板：肩周炎</td>
-								<td>醛固酮测定</td>
-								<td>检验科</td>
-								<td>暂存</td>
-								<td>250</td>
+								<td>{{item.applyname}}</td>
+								<td>{{item.projectName}}</td>
+								<td>{{item.keshi}}</td>
+								<td>{{item.zhuangtai}}</td>
+								<td>{{item.danjia}}</td>
 								<td><a class="btn btn-default btn-xs">详细</a></td>
 							</tr>
 						</tbody>
@@ -274,6 +267,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 	</div>
+</div>
+</div>
 <!-- //banner -->
 <!--end-->
 
@@ -400,7 +395,76 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 <!-- //login -->
+		<script type="text/javascript" src="js/bootstrap/js/bootstrap.js"></script>
+		<script type="text/javascript" src="js/bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/layer/layer.js"></script>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/ecmascript" src="js/vue2.5.js"></script>
+		<script type="text/javascript" src="js/param.js"></script>
+		<script>
+			var v = new Vue({
+				el:'.container2',
+				data:{
+					project:[
+					{applyname:"模板：肩周炎", projectName:"醛固酮测定", keshi:"检验科", zhuangtai:"暂存", danjia:50, buwei:"泌尿", jiaji:0, xiangmumudi:"暂无"},
+					{applyname:"模板：肩周炎", projectName:"醛固酮测定", keshi:"检验科", zhuangtai:"暂存", danjia:250, buwei:"泌尿", jiaji:0, xiangmumudi:"暂无"}
+					],
+					allpricer:0,
+				},
+				methods:{
+					fuzhi:function(){
+						var state = parseInt(getParam("state"));
+						console.log("state="+state);
+						if(state==1){
 
+							var buwei = getUrlParam("buwei");
+							var jiaji = parseInt(getParam("jiaji"));
+							var keshi = getUrlParam("keshi");
+							var zhuangtai = getUrlParam("zhuangtai");
+							
+							var projectname = getUrlParam("projectname");
+							var xiangmumudi = getUrlParam("xiangmumudi");
+							var applyname = getUrlParam("applyname");
+							var price = parseInt(getParam("price"));
+							
+							var projectadd = {applyname: applyname, projectName: projectname, keshi: keshi, zhuangtai:zhuangtai, danjia: price, 
+								buwei: buwei, jiaji: jiaji, xiangmumudi: xiangmumudi};
+							console.log("projectadd"+projectadd);
+							
+							this.project.splice(this.project.length, 0, projectadd);
+						}
+					},
+					
+					/**
+					 * 所有价格加和
+					 */
+					showallprice:function(){
+						var all = 0;
+						v.project.forEach((item) => {
+							all = all + item.danjia;
+						});
+						v.allpricer = all;
+					},
+					
+					/*
+					 * 增加projectAdd的页面跳转
+					 */
+					projectAdd:function(){
+						layer.open({
+							title:'操作：增加药方',
+							type: 2,
+							area:['600px','500px'],
+							content: "addProject.html",
+						});
+					},
+					
+					
+					
+				},
+			})
+			v.showallprice();
+			v.fuzhi();
+		</script>
 </body>
 </html>
 

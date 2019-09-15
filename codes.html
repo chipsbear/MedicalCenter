@@ -135,7 +135,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- banner -->
 <!-- //banner -->
 <div class="container">
-	<div class="container2" style="padding-right: 15px; padding-left: 100px; margin:5 5 10 5;">
+	<div class="container2" style="padding-right: 15px; padding-left: 0px; margin:5 5 10 10;">
 	<ul class="nav nav-tabs">
 		<li><a href="DoctorAddismistion.html">病历首页</a></li>
 		<li><a href="Check_Application.html">检查申请</a></li>
@@ -209,7 +209,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<td><input type="checkbox"></td>
+					<td><input type="checkbox" id="checkall" @click="checkall();"></td>
 					<td>药品名称</td>
 					<td>规格</td>
 					<td>单价</td>
@@ -390,7 +390,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 						<div class="modal-body modal-spa">
 							<div class="login-grids">
-									
 									<div class="login-right">
 										<h3>Sign in with your account</h3>
 										<form action="#" method="post">
@@ -412,7 +411,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											</div>
 										</form>
 									</div>
-									
 								<p>By logging in you agree to our <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a></p>
 							</div>
 						</div>
@@ -449,7 +447,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<div class="sign-up">
 												<input type="submit" value="REGISTER NOW" >
 											</div>
-											
 										</form>
 									</div>
 								<p>By logging in you agree to our <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a></p>
@@ -502,6 +499,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					picked:'0',
 					allpricer:21.91,
 					checkIds:[],
+					checkall:[],
 				},
 				methods:{
 					//初始化赋值
@@ -520,7 +518,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							this.chufangshow.splice(this.chufangshow.length, 0 , chufangadd);
 							this.chufang=this.chufangshow;
 							//alert("chufangshow="+this.chufangshow+
-								//"chufang="+this.chufang);
+							//"chufang="+this.chufang);
 						} else if(state==2){
 							console.log("state="+state);
 							var yaoName = getUrlParam("yaoName");
@@ -684,32 +682,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					},
 					
 					delyao:function(){
-							//确认
-						    //alert("index="+index,"layero="+layero);
-						    var deletenum=[];
-						    deletenum = v.checkIds;
-						    console.log("deletenum="+deletenum+"v.checkIds="+v.checkIds);
-						    
-						    while(deletenum.length!=0){
-						    	var removeId = parseInt(deletenum.pop()); 
-						    	console.log("removeId="+removeId);
-							    v.yaopin.forEach((item) => {
-									console.log("deletenum="+deletenum.length);
-							    	console.log("item.yaoId="+item.yaoId+"removeId="+removeId);
-							    	var sub = item.yaoId-removeId;
-							    	console.log("★★★★★item.yaoId - removeId="+ sub)
-						    		if((item.yaoId-removeId)==0){
-						    			//alert("here is done");
-						    			console.log("deletenum="+deletenum);
-						    			//splice与slice混淆
-						    			v.yaopin.splice(item.yaoId,1);
-						    		}
-							    });
-						    }
-						    v.showallprice();
+						//确认
+					    //alert("index="+index,"layero="+layero);
+					    var deletenum=[];
+					    deletenum = v.checkIds;
+					    console.log("deletenum="+deletenum+"v.checkIds="+v.checkIds);
+					    
+					    while(deletenum.length!=0){
+					    	var removeId = parseInt(deletenum.pop()); 
+					    	console.log("removeId="+removeId);
+						    v.yaopin.forEach((item) => {
+								console.log("deletenum="+deletenum.length);
+						    	console.log("item.yaoId="+item.yaoId+"removeId="+removeId);
+						    	var sub = item.yaoId-removeId;
+						    	console.log("★★★★★item.yaoId - removeId="+ sub)
+					    		if((item.yaoId-removeId)==0){
+					    			//alert("here is done");
+					    			console.log("deletenum="+deletenum);
+					    			//splice与slice混淆
+					    			v.yaopin.splice(item.yaoId,1);
+					    		}
+						    });
+					    }
+					    v.showallprice();
 					},
 					
-					
+					checkall:function(){
+						var checkall = $("#checkall").val();
+						if(checkall==checked){
+							$("#yao").val();
+						}
+					},
 				},
 			})
 			
